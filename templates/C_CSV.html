@@ -1,0 +1,89 @@
+<header>
+    <img onclick="Refresh()" src="../img/logo_txt.png"/>
+    <div></div>
+</header>
+<div id="Body">
+    <div id="Sidebar">
+    </div>
+    <div class="Box flex_row">
+        <div id="PageName">
+            <li>월별 검수 현황</li>
+            <div class="flex_mid">
+                <div class="btn_Save" onclick="exportCSV()">저장하기</div>
+            </div>
+        </div>
+        <div id="ContentsWrapper">
+            <div id="Contents">
+                <div>
+                    <div id="C_MonthChartWrapper">
+                        <canvas id="chart"></canvas>
+                    </div>
+                    <div id="C_TableChartWrapper">
+                        <table>
+                            <tr id="tr_0">
+                                <th>행정구역</th>
+                            </tr>
+                            <tr id="tr_1">
+                                <td>수원</td>
+                            </tr>
+                            <tr id="tr_2">
+                                <td>의정부</td>
+                            </tr>
+                            <tr id="tr_3">
+                                <td>홍천</td>
+                            </tr>
+                            <tr id="tr_4">
+                                <td>강릉</td>
+                            </tr>
+                            <tr id="tr_5">
+                                <td>정선</td>
+                            </tr>
+                            <tr id="tr_6">
+                                <td>논산</td>
+                            </tr>
+                            <tr id="tr_7">
+                                <td>충주</td>
+                            </tr>
+                            <tr id="tr_8">
+                                <td>보은</td>
+                            </tr>
+                            <tr id="tr_9">
+                                <td>예산</td>
+                            </tr>
+                            <tr id="tr_10">
+                                <td>광주</td>
+                            </tr>
+                            <tr id="tr_11">
+                                <td>남원</td>
+                            </tr>
+                            <tr id="tr_12">
+                                <td>순천</td>
+                            </tr>
+                            <tr id="tr_13">
+                                <td>전주</td>
+                            </tr>
+                            <tr id="tr_14">
+                                <td>진주</td>
+                            </tr>
+                            <tr id="tr_15">
+                                <td>포항</td>
+                            </tr>
+                            <tr id="tr_16">
+                                <td>영주</td>
+                            </tr>
+                            <tr id="tr_17">
+                                <td>진영</td>
+                            </tr>
+                            <tr id="tr_18">
+                                <td>대구</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<!-- JS -->
+<script src="../js/Chart/C_CSV.js"></script>

@@ -1,0 +1,100 @@
+#ViewerWrapper {
+    width: 100vw; 
+    height: 100vh;
+}
+
+#CloseBtn {
+    width: 2.6042vw;
+    max-width: 50px;
+    height: 2.6042vw;
+    max-height: 50px;
+
+    border-radius: 1.3021vw;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    margin-bottom: 1.0417vw;
+}
+#CloseBtn p {
+    color: white;
+    font-size: 1.8519vh;
+    font-weight: bold;
+    line-height: 0;
+}
+
+.arrow_circle {
+    width: 4.1667vw;
+    max-width: 80px;
+    height: 4.1667vw;
+    max-height: 80px;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 2.0833vw;
+
+    z-index: 999;
+}
+
+.arrow_circle div {
+    width: 0px;
+    height: 0px;
+
+    border-top: 1.0417vw solid transparent;
+    border-bottom: 1.0417vw solid transparent;
+}
+
+.arrow_left {
+    border-right: 1.0417vw solid rgba(0, 0, 0, 0.75);
+    border-left: 1.0417vw solid  none;
+
+    margin-right: 0.5208vw;
+}
+
+.arrow_right {
+    border-right: 1.0417vw solid  none;
+    border-left: 1.0417vw solid rgba(0, 0, 0, 0.75);
+
+    margin-left: 0.5208vw;
+}
+
+.Wrapper {
+    width: 69.2708vw; 
+    max-width: 1330px; 
+    height: 21.6797vw;
+    max-height: 416.25px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.Wrapper canvas {
+    width: 34.3750vw;
+    max-width: 660px;
+    height: 19.3359vw;
+    max-height: 371.25px;
+
+    position: absolute;
+    top: 2.3437vw;
+    left: 0;
+}
+
+.View_Title {
+    width: 34.3750vw;
+    max-width: 660px;
+    height: 1.8229vw;
+    max-height: 35px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+    
+    margin-bottom: 0.5208vw;
+    padding-left: 20px;
+    
+    display: flex;
+    align-items: center;
+}
+
+.View_Image {
+    width: 34.3750vw;
+    max-width: 660px;
+    height: 19.3359vw;
+    max-height: 371.25px;
+}

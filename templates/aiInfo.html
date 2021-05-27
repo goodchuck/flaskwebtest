@@ -1,0 +1,369 @@
+<header>
+  <img onclick="Refresh()" src="../img/logo_txt.png" />
+  <div></div>
+</header>
+<div id="Body">
+  <div id="Sidebar"></div>
+  <div class="Box flex_row">
+    <div id="PageName">
+      <li>인공지능 학습 정보</li>
+    </div>
+    <div id="ContentsWrapper">
+      <div id="Contents" style="width: 83.8542vw">
+        <head>
+          <meta charset="UTF-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <title>Document</title>
+          <script
+            type="text/javascript"
+            src="../js/lib/googleChart.js"
+          ></script>
+          <script type="text/javascript">
+            // const convert = {
+            //   수원: ["DEVICE00000000157", "DEVICE00000000158"],
+            //   의정부: ["DEVICE00000000159", "DEVICE00000000160"],
+            //   홍천: ["DEVICE00000000161", "DEVICE00000000162"],
+            //   강릉: ["DEVICE00000000163", "DEVICE00000000164"],
+            //   정선: ["DEVICE00000000165", "DEVICE00000000166"],
+            //   논산: ["DEVICE00000000167", "DEVICE00000000168"],
+            //   충주: ["DEVICE00000000169", "DEVICE00000000170"],
+            //   보은: ["DEVICE00000000171", "DEVICE00000000172"],
+            //   예산: ["DEVICE00000000173", "DEVICE00000000174"],
+            //   광주: ["DEVICE00000000175", "DEVICE00000000176"],
+            //   남원: ["DEVICE00000000177", "DEVICE00000000178"],
+            //   순천: ["DEVICE00000000179", "DEVICE00000000180"],
+            //   전주: ["DEVICE00000000181", "DEVICE00000000182"],
+            //   진주: ["DEVICE00000000183", "DEVICE00000000184"],
+            //   포항: ["DEVICE00000000185", "DEVICE00000000186"],
+            //   영주: ["DEVICE00000000187", "DEVICE00000000188"],
+            //   진영: ["DEVICE00000000189", "DEVICE00000000190"],
+            //   대구: ["DEVICE00000000191", "DEVICE00000000192"]
+            // };
+            google.charts.load("current", { packages: ["corechart"] });
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var stackApi = {
+                url:
+                  "http://165.246.196.154:3002/app/statis/deviceCompare?date_from=2021-01-01&date_to=2100-01-01",
+                method: "GET",
+                async: false
+              };
+              $.ajax(stackApi).done((response) => {
+                const dataArray = [
+                  ["수원", 1000],
+                  ["의정부", 1000],
+                  ["홍천", 1000],
+                  ["강릉", 1000],
+                  ["정선", 1000],
+                  ["충주", 1000],
+                  ["보은", 1000],
+                  ["논산", 1000],
+                  ["예산", 1000],
+                  ["전주", 1000],
+                  ["남원", 1000],
+                  ["광주", 1000],
+                  ["순천", 1000],
+                  ["대구", 1000],
+                  ["포항", 1000],
+                  ["영주", 1000],
+                  ["진주", 1000],
+                  ["진영", 1000]
+                ];
+
+                var temp = [["지역", "건수"]];
+
+                for (var i = 0; i < dataArray.length; i++) {
+                  temp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]] +
+                      response.PTH_CNT[convert[dataArray[i][0]][1]]
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                console.log(temp);
+
+                const sortedTemp = temp.slice(1).sort((a, b) => {
+                  return b[1] - a[1];
+                });
+
+                var sum = 0.1;
+                for (var i = 1; i < temp.length; i++) {
+                  sum = sum + temp[i][1];
+                }
+                for (var i = 0; i < 12; i++) {
+                  document.getElementById("chart1Value-" + (i + 1)).innerText =
+                    Math.round((sortedTemp[i][1] / sum) * 100) + "%";
+                  document.getElementById("chart1Name-" + (i + 1)).innerText =
+                    sortedTemp[i][0];
+                }
+                for (var i = 0; i < 7; i++) {}
+
+                var PieData = new google.visualization.DataTable();
+                PieData.addColumn("string", "도시");
+                PieData.addColumn("number", "기여도");
+                PieData.addRows(temp.slice(1));
+
+                var PieChart = new google.visualization.PieChart(
+                  document.getElementById("pieChart")
+                );
+
+                var options = {
+                  pieHole: 0.4,
+                  width: 1080 * 0.6,
+                  height: 400,
+                  slices: {
+                    0: { color: "#4779cc" },
+                    1: { color: "#fec242" },
+                    2: { color: "#1bc9b7" },
+                    3: { color: "#2596f3" },
+                    4: { color: "#fe3996" },
+                    5: { color: "#a2b077" },
+                    6: { color: "#dab5a4" },
+                    7: { color: "#f88c72" },
+                    8: { color: "#b67d6b" },
+                    9: { color: "#e892d8" },
+                    10: { color: "#8eff37" },
+                    11: { color: "#37ffa7" },
+                    12: { color: "#af38ff" },
+                    13: { color: "#3788ff" },
+                    14: { color: "#6d9be4" },
+                    15: { color: "#ede268" },
+                    16: { color: "#e87171" },
+                    17: { color: "#3787ff" },
+                    18: { color: "#6d757d" }
+                  },
+                  chartArea: { width: "90%", height: "100%" },
+                  legend: { position: "left" },
+                  sliceVisibilityThreshold: 0
+                };
+                PieChart.draw(PieData, options);
+              });
+              $.ajax({
+                url:
+                  "http://165.246.196.154:3002/app/statis/inspectAllByMonth?deviceId=DEVICE00000000",
+                method: "get"
+              }).done((response) => {
+                var temp = [
+                  ["1월", 0, 0],
+                  ["2월", 0, 0],
+                  ["3월", 0, 0],
+                  ["4월", 0, 0],
+                  ["5월", 0, 0],
+                  ["6월", 0, 0],
+                  ["7월", 0, 0],
+                  ["8월", 0, 0],
+                  ["9월", 0, 0],
+                  ["10월", 0, 0],
+                  ["11월", 0, 0],
+                  ["12월", 0, 0]
+                ];
+
+                for (var elem of response.inspectAllByMonth) {
+                  temp[elem.MONTH - 1] = [
+                    temp[elem.MONTH - 1][0],
+                    elem.COUNT,
+                    elem.COUNT
+                  ];
+                }
+
+                var data = new google.visualization.DataTable();
+                data.addColumn("string", "달");
+                data.addColumn("number", "사용현황");
+                data.addColumn({ type: "number", role: "annotation" });
+                console.log(temp);
+                data.addRows(temp);
+                var barOptions = {
+                  hAxis: {
+                    minValue: 0
+                  },
+                  vAxis: {
+                    textPosition: "none",
+                  },
+                  width: 1020,
+                  height: 400,
+                  title: { position: "none" },
+                  chartArea: { width: "95%", top: 20, height: "80%" },
+                  legend: { position: "none" },
+                  bar: { groupWidth: "30%" }
+                };
+
+                var barChart = new google.visualization.ColumnChart(
+                  document.getElementById("barChart")
+                );
+                barChart.draw(data, barOptions);
+              });
+            }
+          </script>
+        </head>
+        <style>
+          #wrapper {
+            width: 100vw;
+            min-width: 1080px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            height: auto;
+          }
+          .contentBox {
+            width: 1080px;
+            height: 400px;
+            /* background-color:red; */
+            display: flex;
+            flex-direction: row;
+          }
+
+          .pieChartBox {
+            width: 60%;
+            height: 100%;
+          }
+          .tableBox {
+            width: 40%;
+            height: 100%;
+            /* background-color:yellow; */
+            display: flex;
+            flex-direction: column;
+            /* background:red */
+          }
+          .tableWrap {
+            height: 50%;
+            width: 100%;
+            /* background-color:brown; */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+          }
+          .contentHead {
+            width: 1080px;
+            height: 40px;
+            background-color: #f7f8f7;
+            line-height: 40px;
+          }
+          .contentWrap {
+            border: 1px solid #eaebea;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+          }
+          .table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            max-height: 100%;
+            overflow: scroll;
+            /* height: 100%; */
+          }
+          .tableHead {
+            background-color: #eaebea;
+            width: 33.33%;
+            height: 30px;
+          }
+          .cell {
+            height: 25px;
+            text-align: center;
+          }
+          .cellRow {
+            border-bottom: 1px solid #eaebea;
+          }
+        </style>
+        <div id="wrapper">
+          <div class="contentWrap">
+            <div class="contentHead" style="text-indent:10px; font-weight:bold">국토관리사무소별 인공지능 학습 기여도</div>
+            <div class="contentBox">
+              <div class="pieChartBox">
+                <div id="pieChart"></div>
+              </div>
+              <div class="tableBox" style="height: 100%">
+                <div class="tableWrap" style="height: 100%">
+                  <table class="table">
+                    <th class="tableHead">순위</th>
+                    <th class="tableHead">지역</th>
+                    <th class="tableHead">비율</th>
+                    <tr class="cellRow">
+                      <!-- 첫번째 줄 시작 -->
+                      <td class="cell">1</td>
+                      <td class="cell" id="chart1Name-1"></td>
+                      <td class="cell" id="chart1Value-1"></td>
+                    </tr>
+                    <!-- 첫번째 줄 끝 -->
+                    <tr class="cellRow">
+                      <td class="cell">2</td>
+                      <td class="cell" id="chart1Name-2"></td>
+                      <td class="cell" id="chart1Value-2"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">3</td>
+                      <td class="cell" id="chart1Name-3"></td>
+                      <td class="cell" id="chart1Value-3"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">4</td>
+                      <td class="cell" id="chart1Name-4"></td>
+                      <td class="cell" id="chart1Value-4"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">5</td>
+                      <td class="cell" id="chart1Name-5"></td>
+                      <td class="cell" id="chart1Value-5"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">6</td>
+                      <td class="cell" id="chart1Name-6"></td>
+                      <td class="cell" id="chart1Value-6"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">7</td>
+                      <td class="cell" id="chart1Name-7"></td>
+                      <td class="cell" id="chart1Value-7"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">8</td>
+                      <td class="cell" id="chart1Name-8"></td>
+                      <td class="cell" id="chart1Value-8"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">9</td>
+                      <td class="cell" id="chart1Name-9"></td>
+                      <td class="cell" id="chart1Value-9"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">10</td>
+                      <td class="cell" id="chart1Name-10"></td>
+                      <td class="cell" id="chart1Value-10"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">11</td>
+                      <td class="cell" id="chart1Name-11"></td>
+                      <td class="cell" id="chart1Value-11"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">12</td>
+                      <td class="cell" id="chart1Name-12"></td>
+                      <td class="cell" id="chart1Value-12"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contentWrap">
+            <div class="contentHead" style="text-indent:10px; font-weight: bold;">월별 인공지능 학습 기여도</div>
+            <div class="contentBox">
+              <div class="pieChartBox" style="width: 100%">
+                <div id="barChart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- JS -->
+<script src="../js/aiInfo/aiInfo.js"></script>

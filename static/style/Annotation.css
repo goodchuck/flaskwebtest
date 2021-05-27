@@ -1,0 +1,270 @@
+canvas:focus {
+    outline: none;
+}
+
+#AttrBox {
+    width: 23.4375vw;
+    max-width: 450px;
+
+    margin-right: 20px;
+}
+
+/*  */
+.AttrBox1 {
+    margin-bottom: 0.9259vh;
+}
+
+.AttrTxt1 {
+    height: 15.7407vh;
+    max-height: 170px;
+
+    background-color: #F8F9FA;
+    border: 1px solid #DADADA;
+}
+
+.AttrTxt1 table {
+    width: 20.8333vw;
+    max-width: 400px;
+}
+
+.AttrTxt1 td {
+    height: 2.7778vh;
+    max-height: 30px;
+
+    font-weight: bold;
+    padding-bottom: 0.9259vh;
+}
+
+.AttrTxt1 input {
+    width: 5.2083vw;
+    max-width: 100px;
+    height: 2.3148vh;
+    max-height: 25px;
+
+    text-align: center;
+    background-color: #F8F9FA;
+    border: 1px solid #DADADA;
+
+    margin-right: 5px;
+}
+
+.AttrTxt1 input, button:focus {
+    outline: none;
+}
+
+.AttrTxt1 button {
+    width: 2.6042vw;
+    max-width: 50px;
+    height: 2.3148vh;
+    max-height: 25px;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.3889vh;
+    background-color: #F5A100;
+    border: 1px solid #DADADA;
+    border-radius: 2px;
+}
+
+.AttrTxt1 button:hover {
+    background-color: #CE7134;
+}
+
+/*  */
+.AttrTxt2 {
+    height: 59.2593vh;
+    max-height: 640px;
+
+    background-color: #F8F9FA;
+    border: 1px solid #DADADA;
+}
+
+.ScrollBox {
+    margin-top: 1.3889vh;
+
+    height: 56.4815vh;
+    max-height: 610px;
+    overflow: auto;
+}
+
+.ScrollBox::-webkit-scrollbar {
+    width: 0.5729vw;
+
+    background-color: #FFFFFF;
+}
+
+.ScrollBox::-webkit-scrollbar-thumb {
+    background-color: #7a7a83;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+.ScrollBox .wrapper {
+    width: 20.8333vw;
+    max-width: 400px;
+    
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 0.4630vh;
+    padding: 0.4630vh 0.7813vw;
+
+    overflow-x: auto;
+}
+
+.ScrollBox div::-webkit-scrollbar {
+    height: 0.8vh;
+
+    background-color: #FFFFFF;
+}
+
+.ScrollBox div::-webkit-scrollbar-thumb {
+    background-color: #353540;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+.ScrollBox div ul {
+    list-style: none;
+    line-height: 2.7778vh;
+}
+
+.ScrollBox div li {
+    white-space: nowrap;
+}
+
+.ScrollBox table {
+    width: 19.2708vw;
+    max-width: 370px;
+}
+
+.ObjTilte {
+    font-size: 2.0370vh;
+    font-weight: bold;
+    line-height: 3.7037vh;
+}
+
+.PicTitle {
+    height: 4.6296vh;
+    max-height: 50px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 0.9259vh;
+    
+    display: flex;
+    align-items: center;
+}
+
+.PicTitle p {
+    font-size: 1.8519vh;
+    font-weight: bold;
+
+    padding-left: 1.0417vw;
+}
+
+.PicTitle img {
+    height: 2.7778vh;
+
+    margin-left: 2.6316%;
+}
+
+.PicTitle li {
+    width: 57.2917vw;
+    max-width: 1100px;
+    
+    font-size: 1.6667vh;
+    list-style: none;
+    border-bottom: 1px solid #DADADA;
+
+    margin-left: 1.0417vw;
+    padding-left: 0.5208vw;
+}
+
+#PicBox {
+    width: 59.3750vw;
+    max-width: 1140px;
+}
+
+.PicConsole {
+    height: 7.4074vh;
+    max-height: 80px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 0.9259vh;
+
+    padding: 0 1.0417vw;
+}
+
+.PicConsole div {
+    width: 7.8125vw;
+    max-width: 150px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.6667vh;
+    font-weight: bold;
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.PicConsole div:hover {
+    background-color: #DADADA;
+    border: 1px solid #FAFAFA;
+}
+
+.PicMain {
+    height: 78.7037vh;
+    max-height: 850px;
+
+    background-color: #F8F9FA;
+    border: 1px solid #DADADA;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: auto;
+}
+
+.PicMain::-webkit-scrollbar {
+    width: 0.8vh;
+    height: 0.8vh;
+
+    background-color: #FFFFFF;
+}
+
+.PicMain::-webkit-scrollbar-thumb {
+    background-color: #7a7a83;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+#canvas_panel {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#image_canvas {
+    position: absolute;
+    
+    z-index: 1;
+}
+
+#region_canvas {
+    position: absolute;
+
+    z-index: 100;
+}

@@ -1,0 +1,89 @@
+.btn_Save {
+    width: 4.6875vw;
+    max-width: 90px;
+    height: 2.7778vh;
+    max-height: 30px;
+
+    background-color: #ffffff93;
+    border: 1px solid #E0E0E0;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.1);
+
+    margin-right: 1.0417vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_Save:hover {
+    background-color: #4679cce1;
+    border: 1px solid #D0D0D0;
+
+    color: #FFFFFF;
+}
+
+#C_MonthChartWrapper {
+    height: 24.0741vh;
+    max-height: 260px;
+    
+    margin-bottom: 1.3889vh;
+}
+
+#C_TableChartWrapper {
+    /* border: 1px solid #8f8f8f; */
+    /* width: 84.3750vw;
+    max-width: 1610px; */
+    width: 72.9167vw;
+    max-width: 1400px;
+    height: 61.5741vh;
+    max-height: 665px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#C_TableChartWrapper::-webkit-scrollbar {
+    width: 0.5208vw;
+
+    background-color: #FFFFFF;
+}
+
+#C_TableChartWrapper::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+/* #C_TableChartWrapper table {
+    width: 84.3750vw;
+    max-width: 1610px;
+} */
+
+#C_TableChartWrapper tr {
+    height: 3.2407vh;
+    max-height: 35px;
+}
+
+#C_TableChartWrapper th {
+    width: 5.2083vw;
+    max-width: 100px;
+
+    background-color: #e0e0e0;
+}
+
+#C_TableChartWrapper td {
+    width: 5.2083vw;
+    max-width: 100px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #888888;
+}

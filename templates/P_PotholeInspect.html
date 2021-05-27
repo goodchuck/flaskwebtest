@@ -1,0 +1,87 @@
+<header>
+    <img onclick="Refresh()" src="../img/logo_txt.png"/>
+    <div></div>
+</header>
+<div id="Body">
+    <div id="Sidebar">
+        <ul>
+            <li id="M_Server" onclick="ClickedMenu(this)">
+                <span class="icon flex_mid"><img src="../img/icon/server.png" /></span>
+                <span>서버</span>
+            </li>
+                <div id="DM_Server" style="display: none;">
+                    <li onclick="AIMgt()" class="DetailedMenu">
+                        인공지능 관리
+                    </li>
+                    <li onclick="DeviceMgt()" class="DetailedMenu">
+                        기기 관리
+                    </li>
+                    <li onclick="PotholeState()" class="DetailedMenu">
+                        포트홀 현황
+                    </li>
+                </div>
+            <li id="M_Inspection" onclick="ClickedMenu(this)">
+                <span class="icon flex_mid"><img src="../img/icon/inspect.png" /></span>
+                <span>포트홀 검수</span>
+            </li>
+                <div id="DM_Inspection" style="display: none;">
+                    <li onclick="PotholeInspect()" class="DetailedMenu">
+                        포트홀 검수
+                    </li>
+                    <li onclick="Viewer()" class="DetailedMenu">
+                        뷰어
+                    </li>
+                </div>
+            <li id="M_Chart" onclick="ClickedMenu(this)">
+                <span class="icon flex_mid"><img src="../img/icon/table_chart.png" /></span>
+                <span>통계</span>
+            </li>
+                <div id="DM_Chart" style="display: none;">
+                    <li onclick="TableChart()" class="DetailedMenu">
+                        통계
+                    </li>
+                    <li onclick="ImgChart()" class="DetailedMenu">
+                        보낸 포트홀 목록
+                    </li>
+                </div>
+        </ul>
+    </div>
+    <div class="Box flex_row">
+        <div id="PageName">
+            <li>포트홀 검수</li>
+        </div>
+        <div id="ContentsWrapper">
+            <div id="Contents">
+                <div>
+                    <div id="Controller">
+                        <div style="font-weight: bold;">
+                            <span style="margin-right: 0.2604vw;">잔여 포트홀 개수 :</span>
+                            <span id="lastPotholeCount"></span>
+                        </div>
+                        <div id="user" class="flex_mid">
+                            <span>총 작업 인원 :</span>
+                            <input id="number_of_workers" class="userinput" type="text" />
+                            <span>작업 순서 :</span>
+                            <input id="worker_id" class="userinput" type="text"/>
+                            <span class="toggleBtn Blank" onclick="importWokersData('pic')">불러오기</span>
+                        </div>
+                        <div id="Paging" class="flex_ac">
+                            <img id="BtnLeft" name="angle_left" src="../img/icon/angle_left.png" onclick="PagingLeft()" onmouseover="iconhover(this)" onmouseout="iconout(this)" />
+                            <span class="Blank" id="TxtCurrentPage"></span>
+                            <span class="Blank">/</span>
+                            <span class="Blank"id="TxtTotalPage"></span>
+                            <img id="BtnRight" class="Blank" name="angle_right" src="../img/icon/angle_right.png" onclick="PagingRight()" onmouseover="iconhover(this)" onmouseout="iconout(this)" />
+                            <p class="toggleBtn Blank" onclick="exportWorkerData('pic')">내보내기</p>
+                        </div>
+                    </div>
+                    <div id="Pictures">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- JS -->
+<script src="../js/PotholeInspect/P_PotholeInspect.js"></script>
+<script src="../js/PotholeInspect/toggle.js"></script>

@@ -1,0 +1,68 @@
+.modelBox {
+    width: 26.0417vw;
+    max-width: 500px;
+    height: 36.4583vw;
+    max-height: 700px;
+
+    background-color: #FFFFFF;
+    border-radius: 0.2604vw;
+
+    flex-direction: column;
+}
+
+.modelBox_title {
+    width: 23.9583vw;
+    max-width: 460px;
+    height: 1.5625vw;
+    max-height: 30px;
+
+    background-color: #DADADA;
+
+    margin-bottom: 0.5208vw;
+    padding-left: 1.0417vw;
+}
+
+#modelList {
+    width: 23.9583vw;
+    max-width: 460px;
+    height: 29.6875vw;
+    max-height: 570px;
+
+    margin-bottom: 1.0417vw;
+
+    overflow: auto;
+}
+
+#modelList::-webkit-scrollbar {
+    width: 0.4vw;
+
+    background-color: #FFFFFF;
+
+}
+
+#modelList::-webkit-scrollbar-thumb {
+    background-color: #858585d3;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+#modelList .row:hover {
+    background-color: #f0f0f0;
+}
+
+.modelBox .btn {
+    width: 5.2083vw;
+    max-width: 100px;
+    height: 1.5625vw;
+    max-height: 30px;
+
+    border: 1px solid #DADADA;
+    box-shadow:  2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.modelBox .btn:hover {
+    background-color: #DADADA;
+    border: 1px solid #FFFFFF;
+}

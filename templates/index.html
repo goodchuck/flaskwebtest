@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트홀 2차필터</title>
+    <script>
+      const convert = {
+        수원: ["DEVICE00000000157", "DEVICE00000000158"],
+        의정부: ["DEVICE00000000159", "DEVICE00000000160"],
+        홍천: ["DEVICE00000000161", "DEVICE00000000162"],
+        강릉: ["DEVICE00000000163", "DEVICE00000000164"],
+        정선: ["DEVICE00000000165", "DEVICE00000000166"],
+        논산: ["DEVICE00000000167", "DEVICE00000000168"],
+        충주: ["DEVICE00000000169", "DEVICE00000000170"],
+        보은: ["DEVICE00000000171", "DEVICE00000000172"],
+        예산: ["DEVICE00000000173", "DEVICE00000000174"],
+        광주: ["DEVICE00000000175", "DEVICE00000000176"],
+        남원: ["DEVICE00000000177", "DEVICE00000000178"],
+        순천: ["DEVICE00000000179", "DEVICE00000000180"],
+        전주: ["DEVICE00000000181", "DEVICE00000000182"],
+        진주: ["DEVICE00000000183", "DEVICE00000000184"],
+        포항: ["DEVICE00000000185", "DEVICE00000000186"],
+        영주: ["DEVICE00000000187", "DEVICE00000000188"],
+        진영: ["DEVICE00000000189", "DEVICE00000000190"],
+        대구: ["DEVICE00000000191", "DEVICE00000000192"]
+      };
+      
+    </script>
+    <!-- CSS -->
+    <!-- <script src="https://unpkg.com/markerjs"></script>    -->
+    <link href="../style/index.css" rel="stylesheet" />
+    <link href="../style/S_AIMgt.css" rel="stylesheet" />
+    <link href="../style/S_ModelDetail.css" rel="stylesheet" />
+    <link href="../style/S_DeviceMgt.css" rel="stylesheet" />
+    <link href="../style/S_PotholeState.css" rel="stylesheet" />
+    <link href="../style/P_PotholeInspect.css" rel="stylesheet" />
+    <link href="../style/P_PotholeInspectList.css" rel="stylesheet" />
+    <link href="../style/P_Viewer.css" rel="stylesheet" />
+    <link href="../style/P_DetailViewer.css" rel="stylesheet" />
+    <link href="../style/C_TableChart.css" rel="stylesheet" />
+    <link href="../style/C_ImgChart.css" rel="stylesheet" />
+    <link href="../style/C_CSV.css" rel="stylesheet" />
+    <link href="../style/Annotation.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/S_AIMgt.css')}}">         
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/S_ModelDetail.css')}}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/S_DeviceMgt.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/S_PotholeState.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/P_PotholeInspect.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/P_PotholeInspectList.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/P_Viewer.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/P_DetailViewer.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/C_TableChart.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/C_ImgChart.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/C_CSV.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/Annotation.css')}}">
+    <!-- JS -->
+    <script src="../js/lib/jquery-3.6.0.min.js"></script>
+    <script src="../js/lib/Chart.min.js"></script>
+    <script src="../js/lib/markerjs.umd.js"></script>
+    <script src="../js/util/Tools.js"></script>
+    <script src="../js/util/Dataset.js"></script>
+    <script src="../js/util/Timeset.js"></script>
+    <script src="../js/util/index.js"></script>
+    <script src="../js/util/Datamanager.js"></script>
+    <script src="{{ url_for('static', filename='js/lib/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/lib/Chart.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/lib/markerjs.umd.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/util/Tools.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/util/Dataset.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/util/Timeset.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/util/index.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/util/Datamanager.js')}}"></script>
+  </head>
+
+  <body></body>
+</html>

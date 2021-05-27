@@ -1,0 +1,170 @@
+#DateBtns {
+    height: 6.4815vh;
+    max-height: 70px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 1.3889vh;
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#DateBtns button {
+    width: 7.8125vw;
+    max-width: 150px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#DateBtns button:hover {
+    background-color: #DADADA;
+    border: 1px solid #FAFAFA;
+}
+
+#DateBtns button:focus {
+    outline: none;
+}
+
+#DateBtns input {
+    width: 7.8125vw;
+    max-width: 150px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+
+    padding-left: 5px;
+}
+
+#DateBtns input:focus {
+    outline: none;
+}
+
+#DateBtns p {
+    font-weight: bold;
+}
+
+.Period {
+    width: 8.3333vw;
+    max-width: 160px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.OK {
+    width: 5.2083vw;
+    max-width: 100px;
+    height: 2.7778vh;
+    max-height: 30px;
+
+    font-size: 1.2963vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.OK:hover {
+    background-color: #DADADA;
+    border: 1px solid #FAFAFA;
+}
+
+.D_table_title {
+    width: 100%;
+    height: 4.6296vh;
+    max-height: 50px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 1.3889vh;
+}
+
+#DeviceList {
+    width: 84.3750vw;
+    max-width: 1620px;
+    height: 73.1481vh;
+    max-height: 790px;
+
+    overflow: auto;
+}
+
+#DeviceList table {
+    text-align: center;
+    font-weight: bold;
+
+    background-color: #FFFFFF;
+    border: 1px solid #DADADA;
+}
+
+#DeviceList::-webkit-scrollbar {
+    width: 0.5208vw;
+
+    background-color: #FFFFFF;
+}
+
+#DeviceList::-webkit-scrollbar-thumb {
+    background-color: #353540;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+#DeviceList td {
+    height: 180px;
+
+    border-bottom: 2px solid #D9D9D9;
+
+    padding: 10px 0;
+}
+
+.DoughnutChart {
+    width: 110px;
+    height: 110px;
+
+    text-align: center;
+    line-height: 0;
+    font-weight: bold;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.DoughnutChart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

@@ -1,0 +1,41 @@
+<ul>
+    <li id="M_Server" onclick="ClickedMenu(this)">
+        <span class="icon flex_mid"><img src="../img/icon/server.png" /></span>
+        <span>서버</span>
+    </li>
+        <div id="DM_Server" style="display: none;">
+            <li onclick="AIMgt()" class="DetailedMenu">
+                인공지능 관리
+            </li>
+            <li onclick="DeviceMgt()" class="DetailedMenu">
+                기기 관리
+            </li>
+            <li onclick="PotholeState()" class="DetailedMenu">
+                포트홀 현황
+            </li>
+        </div>
+    <li id="M_Inspection" onclick="ClickedMenu(this)">
+        <span class="icon flex_mid"><img src="../img/icon/inspect.png" /></span>
+        <span>포트홀 검수</span>
+    </li>
+        <div id="DM_Inspection" style="display: none;">
+            <li onclick="PotholeInspect()" class="DetailedMenu">
+                포트홀 검수
+            </li>
+            <li onclick="Viewer()" class="DetailedMenu">
+                뷰어
+            </li>
+        </div>
+    <li id="M_Chart" onclick="ClickedMenu(this)">
+        <span class="icon flex_mid"><img src="../img/icon/table_chart.png" /></span>
+        <span>통계</span>
+    </li>
+        <div id="DM_Chart" style="display: none;">
+            <li onclick="TableChart()" class="DetailedMenu">
+                통계
+            </li>
+            <li onclick="ImgChart()" class="DetailedMenu">
+                보낸 포트홀 목록
+            </li>
+        </div>
+</ul>

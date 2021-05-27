@@ -1,0 +1,185 @@
+/* Controller */
+#P_ListController {
+    width: 100%;
+    max-width: 1610px;
+    height: 3.7037vh;
+
+    line-height: 0;
+    padding-bottom: 0.9259vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#P_ListController span {
+    color: #353540;
+    font-size: 2.1296vh;
+    font-weight: bold;
+    list-style: none;
+}
+
+#P_ListController span input {
+    width: 1.5625vw;
+
+    background-color: none;
+    border: 0.0521vw solid #353540;
+
+    color: #353540;
+    font-size: 1.2963vh;
+    font-weight: bold;
+    text-align: center;
+
+    vertical-align: top;
+}
+
+#user span {
+    color: #353540;
+    font-size: 1.6667vh;
+    font-weight: bold;
+    list-style: none;
+}
+
+#Paging span {
+    color: #353540;
+    font-size: 2.1296vh;
+    font-weight: bold;
+    list-style: none;
+}
+
+#P_ListController span input:focus {
+    outline: 0;
+}
+
+.Blank {
+    margin-left: 0.7813vw;
+}
+
+#P_ListController span i:hover {
+    color: #4679CC
+}
+
+/* List Title */
+#P_ListHead {
+    width: 83.8542vw;
+    max-width: 1610px;
+    height: 4.6296vh;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 0.9259vh;
+}
+
+#P_ListHead th {
+    font-size: 1.6667vh;
+
+    padding: 0;
+    margin: 0;
+}
+
+/* List Contents */
+#P_ListBody {
+    width: 100%;
+
+    background-color: #F8F9FA;
+    border: 1px solid #DADADA;
+
+    overflow: auto;
+}
+
+#P_ListBodyWrapper {
+    width: 84.3750vw;
+    max-width: 1620px;
+    height: 77.7778vh;
+    
+    overflow: auto;
+}
+
+#P_ListBodyWrapper::-webkit-scrollbar {
+    width: 0.5729vw;
+
+    background-color: #FFFFFF;
+}
+
+#P_ListBodyWrapper::-webkit-scrollbar-thumb {
+    background-color: #353540;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+#Contents table {
+    border-collapse: collapse;
+}
+
+#P_ListBody tr {
+    height: 11.4583vw;
+
+    border-bottom: 2px solid #D9D9D9;
+}
+
+#P_ListBody td {
+    color: #353540;
+    font-size: 1.6667vh;
+    font-weight: bold;
+    text-align: center;
+
+    padding: 0px 10px;
+    margin: 0 auto;
+}
+
+#P_ListBody .roadimg {
+    /* 320*180 */
+    width: 16.6667vw;
+    max-width: 320px;
+    height: 9.3750vw;
+    max-height: 180px;
+
+    vertical-align: middle;
+}
+
+#P_ListBody canvas {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    
+    width: 1920px;
+    height: 1080px;
+
+    transform:translate(-50%, 0);
+}
+
+#P_ListBody i {
+    font-size: 2.0370vh;
+}
+
+
+#P_ListBody i:hover {
+    color: rgba(197, 87, 16);
+}
+
+.ListBtnWrapper {
+    /* width: 10.2604vw; */
+    /* max-width: 197px; */
+    height: 1.5625vw; 
+    max-height: 30px;
+
+    background-color: #DADADA;
+    border: 1px solid #D0D0D0;
+    border-radius: 5px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.2);
+
+    margin: 0.2778vh 3px;
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 
+.ListBtnWrapper p {
+    font-size: 20px;
+    font-weight: bold;
+} */

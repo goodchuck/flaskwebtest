@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard</title>
+    <!-- CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <Link href="../style/index.css" rel="stylesheet">
+    <Link href="../style/S_AIMgt.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img onclick="Refresh()" src="../img/logo_txt.png"/>
+        <div></div>
+    </header>
+    <div id="Body">
+        <div id="Sidebar">
+            <ul>
+                <li id="M_Server" onclick="ClickedMenu(this)">
+                    <span class="icon flex_mid"><img src="../img/icon/server.png" /></span>
+                    <span>서버</span>
+                </li>
+                    <div id="DM_Server" style="display: none;">
+                        <li onclick="AIMgt()" class="DetailedMenu">
+                            인공지능 관리
+                        </li>
+                        <li onclick="DeviceMgt()" class="DetailedMenu">
+                            기기 관리
+                        </li>
+                        <li onclick="PotholeState()" class="DetailedMenu">
+                            포트홀 현황
+                        </li>
+                    </div>
+                <li id="M_Inspection" onclick="ClickedMenu(this)">
+                    <span class="icon flex_mid"><img src="../img/icon/inspect.png" /></span>
+                    <span>포트홀 검수</span>
+                </li>
+                    <div id="DM_Inspection" style="display: none;">
+                        <li onclick="PotholeInspect()" class="DetailedMenu">
+                            포트홀 검수
+                        </li>
+                        <li onclick="Viewer()" class="DetailedMenu">
+                            뷰어
+                        </li>
+                    </div>
+                <li id="M_Chart" onclick="ClickedMenu(this)">
+                    <span class="icon flex_mid"><img src="../img/icon/table_chart.png" /></span>
+                    <span>통계</span>
+                </li>
+                    <div id="DM_Chart" style="display: none;">
+                        <li onclick="TableChart()" class="DetailedMenu">
+                            통계
+                        </li>
+                        <li onclick="ImgChart()" class="DetailedMenu">
+                            보낸 포트홀 목록
+                        </li>
+                    </div>
+            </ul>
+        </div>
+        <div class="Box flex_row">
+            <div id="PageName">
+                <li>인공지능 관리</li>
+            </div>
+            <div id="ContentsWrapper">
+                <div id="Contents">
+                    <div id="Section1">
+                        <div class="title">
+                            <p>현재 모델</p>
+                            <div id="test">
+                                <p>model.pt</p>
+                            </div>
+                        </div>
+                        <div class="main" style="height: 54.6296vh; max-height: 590px; margin-bottom: 1.8519vh;">
+                            <table id="CurrentModelTable" style="width: 28.1250vw; max-width: 540px; margin-bottom: 1.8519vh;">
+                                <tr>
+                                    <th colspan="3">평가지표</th>
+                                </tr>
+                                    <tr style="height: 0.7407vh; max-height: 8px;"></tr>
+                                <tr>
+                                    <td style="width: 32.5926%; ">정확도</td>
+                                        <td style="width: 3.7037%; background-color: #F8F9FA;"> </td>
+                                    <td id="test2">92.7%</td>
+                                    
+                                </tr>
+                                    <tr style="height: 0.7407vh; max-height: 8px;"></tr>
+                                <tr>
+                                    <td style="width: 32.5926%; ">재현율</td>
+                                        <td style="width: 3.7037%; background-color: #F8F9FA;"></td>
+                                    <td id="test3">95.2%</td>
+                                </tr>
+                                    <tr style="height: 0.7407vh; max-height: 8px;"></tr>
+                                <tr>
+                                    <td style="width: 32.5926%; ">정밀도</td>
+                                        <td style="width: 3.7037%; background-color: #F8F9FA;"></td>
+                                    <td id="test4">92.9%</td>
+                                </tr
+                                
+                                >
+                                    <tr style="height: 0.7407vh; max-height: 8px;"></tr>
+                                <tr>
+                                    <td style="width: 32.5926%; ">F1 Score(조화평균)</td>
+                                        <td style="width: 3.7037%; background-color: #F8F9FA;"></td>
+                                    <td id="test5">94.0%</td>
+                                </tr>
+                            </table>
+                            <div id="LineChartWrapper">
+                                <canvas id="LineChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="title">
+                            <p>도구 모음</p>
+                        </div>
+                        <div class="main" style="height: 19.4444vh; max-height: 210px;">
+                            <div class="flex_col" style="height: 15.7407vh; max-height: 170px;">
+                                <div class="flex_sb" style="width: 100%;">
+                                    <div id="searchModel" class="flex_mid ToolBtn" style="width: 49%;" onclick="ModelDetail(this)">
+                                        <p>모델 조회</p>
+                                    </div>
+                                    <div id="changeModel" class="flex_mid ToolBtn" style="width: 49%;" onclick="ModelDetail(this)"> 
+                                        <p>모델 교체</p>
+                                    </div>
+                                </div>
+                                <div class="flex_sb" style="width: 100%;">
+                                    <div class="flex_mid ToolBtn" style="width: 49%;">
+                                        <p>인공지능 필터 가동</p>
+                                    </div>
+                                    <div class="flex_mid ToolBtn" style="width: 49%;">
+                                        <p>인공지능 필터 중지</p>
+                                    </div>
+                                </div>
+                                <div class="flex_sb" style="width: 100%;">
+                                    <div class="flex_mid ToolBtn" style="width: 49%;">
+                                        <p>인공지능 자동학습 모드 실행</p>
+                                    </div>        
+                                    <div class="flex_mid ToolBtn" style="width: 49%;">
+                                        <p>인공지능 자동학습 모드 중지</p>
+                                    </div>                                
+                                </div>
+                                <div class="flex_mid ToolBtn" style="width: 100%;">
+                                    <p>인공지능 서버 재시동</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Section2">
+                        <div class="DC_title">
+                            <p>현재 모델 평가지표</p>
+                        </div>
+                        <div class="table_title">
+                            <div class="flex_mid" style="width: 25%;">정확도</div>
+                            <div class="flex_mid" style="width: 25%;">재현율</div>
+                            <div class="flex_mid" style="width: 25%;">정밀도</div>
+                            <div class="flex_mid" style="width: 25%;">F1 Score</div>
+                        </div>
+                        <div id="DoughnutChartWrapper"></div>
+                        <div class="DC_title">
+                            <p>조회된 모델 평가지표 현재 모델 : <p id="test6"></p></p>
+                        </div>
+                        <div class="table_title">
+                            <div class="flex_mid" style="width: 25%;">정확도</div>
+                            <div class="flex_mid" style="width: 25%;">재현율</div>
+                            <div class="flex_mid" style="width: 25%;">정밀도</div>
+                            <div class="flex_mid" style="width: 25%;">F1 Score</div>
+                        </div>
+                        <div id="DoughnutChartWrapper2"></div>
+                        <div class="title">
+                            <p>인공지능 모델 학습</p>
+                        </div>
+                        <div class="main" style="height: 22.0370vh; max-height: 238px;">
+                            <div style="width: 47.6563vw; max-width: 915px;">
+                                <div class="flex_sb" style="margin-bottom: 1.3889vh;">
+                                    <div class="title_l tilte_defalut flex_mid">학습 시작일</div>
+                                    <div id="datetimeBox" onclick="Inputdatetime(this)" class="textbox_defalut flex_ac" style="width: 38.5417vw; max-width: 740px">
+                                    </div>
+                                </div>
+                                <div class="flex_sb" style="margin-bottom: 1.3889vh;">
+                                    <div class="title_l tilte_defalut flex_mid">Pretrained Model</div>
+                                    <div class="textbox_defalut flex_ac" style="width: 38.5417vw; max-width: 740px">
+                                        <p>model.pt</p>
+                                    </div>
+                                </div>
+                                <div class="flex_sb" style="margin-bottom: 1.8519vh;">
+                                    <div class="title_s tilte_defalut flex_mid">epoch</div>
+                                    <div class="textbox_defalut flex_ac" style="width: 9.1667vw; max-width: 176px">
+                                        <p>100</p>
+                                    </div>
+                                    <div class="title_s tilte_defalut flex_mid">batch</div>
+                                    <div class="textbox_defalut flex_ac" style="width: 9.1667vw; max-width: 176px">
+                                        <p>4</p>
+                                    </div>
+                                    <div class="title_s tilte_defalut flex_mid">learning Rate</div>
+                                    <div class="textbox_defalut flex_ac" style="width: 10.7292vw; max-width: 206px">
+                                        <p>0.01</p>
+                                    </div>
+                                </div>
+                                <div class="btn_start flex_mid" style="margin-bottom: 1.8519vh;">
+                                    인공지능 학습 설정
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Modal" style="display: none;">
+        </div>
+    </div>
+    <!-- JS -->
+    <script src="../js/lib/easypiechart.js"></script>
+    <script src="../js/AIMgt/S_AIMgt.js"></script>
+</body>
+</html>

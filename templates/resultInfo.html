@@ -1,0 +1,1048 @@
+<header>
+  <img onclick="Refresh()" src="../img/logo_txt.png" />
+  <div></div>
+</header>
+<div id="Body">
+  <div id="Sidebar"></div>
+  <div class="Box flex_row">
+    <div id="PageName">
+      <li>포트홀 검출 현황</li>
+
+    </div>
+    <div id="ContentsWrapper">
+      <div id="Contents" style="width: 83.8542vw">
+
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Document</title>
+          <script type="text/javascript" src="../js/lib/googleChart.js"></script>
+          <style>
+            #Start_date button {
+              width: 7.6875vw;
+              max-width: 115px;
+              height: 3.7037vh;
+              max-height: 40px;
+              font-size: 1.4815vh;
+              font-weight: bold;
+              background-color: #FFFFFF;
+              border: 1px solid #E0E0E0;
+              border-radius: 3px;
+              box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+            }
+
+            #Start_date div {
+              width: 5.6875vw;
+              max-width: 115px;
+              height: 3.7037vh;
+              max-height: 40px;
+              font-size: 1.4815vh;
+              font-weight: bold;
+              background-color: #FFFFFF;
+              border: 1px solid #E0E0E0;
+              border-radius: 3px;
+              box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+              line-height: 3.7037vh;
+              text-align: center;
+            }
+
+            #Start_date {
+              height: 6.4815vh;
+              max-height: 70px;
+
+              background: #FAFAFA;
+              border: 1px solid #E0E0E0;
+
+              padding: 0 15px;
+
+              display: flex;
+              justify-content: space-between;
+            }
+
+            #Start_date input {
+              width: 8.2917vw;
+              max-width: 140px;
+              height: 3.7037vh;
+              max-height: 37.5px;
+
+              font-size: 1.3889vh;
+              font-weight: bold;
+
+              background-color: #FFFFFF;
+              border: 1px solid #E0E0E0;
+              border-radius: 3px;
+              box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+
+              padding-left: 5px;
+            }
+
+            #Start_date button:active {
+              outline: none;
+              background: black;
+            }
+          </style>
+
+          <script type="text/javascript">
+            // const convert = {
+            //   수원: ["DEVICE00000000157", "DEVICE00000000158"],
+            //   의정부: ["DEVICE00000000159", "DEVICE00000000160"],
+            //   홍천: ["DEVICE00000000161", "DEVICE00000000162"],
+            //   강릉: ["DEVICE00000000163", "DEVICE00000000164"],
+            //   정선: ["DEVICE00000000165", "DEVICE00000000166"],
+            //   논산: ["DEVICE00000000167", "DEVICE00000000168"],
+            //   충주: ["DEVICE00000000169", "DEVICE00000000170"],
+            //   보은: ["DEVICE00000000171", "DEVICE00000000172"],
+            //   예산: ["DEVICE00000000173", "DEVICE00000000174"],
+            //   광주: ["DEVICE00000000175", "DEVICE00000000176"],
+            //   남원: ["DEVICE00000000177", "DEVICE00000000178"],
+            //   순천: ["DEVICE00000000179", "DEVICE00000000180"],
+            //   전주: ["DEVICE00000000181", "DEVICE00000000182"],
+            //   진주: ["DEVICE00000000183", "DEVICE00000000184"],
+            //   포항: ["DEVICE00000000185", "DEVICE00000000186"],
+            //   영주: ["DEVICE00000000187", "DEVICE00000000188"],
+            //   진영: ["DEVICE00000000189", "DEVICE00000000190"],
+            //   대구: ["DEVICE00000000191", "DEVICE00000000192"]
+            // };
+            google.charts.load("current", { packages: ["corechart"] });
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var stackApi = {
+                url:
+                  "http://165.246.196.154:3002/app/statis/deviceCompare?date_from=2021-01-01&date_to=2100-01-01",
+                method: "GET",
+                async: false
+              };
+              $.ajax(stackApi).done((response) => {
+                const dataArray = [
+                  ["수원", 1000],
+                  ["의정부", 1000],
+                  ["홍천", 1000],
+                  ["강릉", 1000],
+                  ["정선", 1000],
+                  ["충주", 1000],
+                  ["보은", 1000],
+                  ["논산", 1000],
+                  ["예산", 1000],
+                  ["전주", 1000],
+                  ["남원", 1000],
+                  ["광주", 1000],
+                  ["순천", 1000],
+                  ["대구", 1000],
+                  ["포항", 1000],
+                  ["영주", 1000],
+                  ["진주", 1000],
+                  ["진영", 1000]
+                ];
+                var temp = [["지역", "건수"]];
+
+                for (var i = 0; i < dataArray.length; i++) {
+                  temp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]] +
+                    response.PTH_CNT[convert[dataArray[i][0]][1]]
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                const sorted = temp.slice(1).sort((a, b) => {
+                  return b[1] - a[1];
+                });
+
+                var sum = 0.1;
+                var data = google.visualization.arrayToDataTable(temp);
+                for (var i = 1; i < temp.length; i++) {
+                  sum = sum + temp[i][1];
+                }
+                for (var i = 0; i < 12; i++) {
+                  document.getElementById("chart1Value-" + (i + 1)).innerText =
+                    Math.round((sorted[i][1] / sum) * 100) + "%";
+                  document.getElementById("chart1Name-" + (i + 1)).innerText =
+                    sorted[i][0];
+                }
+                // for (var i = 1; i < temp.length; i++) {
+                // data.setFormattedValue(
+                //     i - 1,
+                //     0,
+                //     data.getValue(i - 1, 0) +
+                //     " (" +
+                //     ((temp[i][1] / sum) * 100).toFixed(1) +
+                //     "%)"
+                // );
+                // }
+                var options = {
+                  pieHole: 0.4,
+                  width: 1000 * 0.6,
+                  height: 400,
+                  slices: {
+                    0: { color: "#4779cc" },
+                    1: { color: "#fec242" },
+                    2: { color: "#1bc9b7" },
+                    3: { color: "#2596f3" },
+                    4: { color: "#fe3996" },
+                    5: { color: "#a2b077" },
+                    6: { color: "#dab5a4" },
+                    7: { color: "#f88c72" },
+                    8: { color: "#b67d6b" },
+                    9: { color: "#e892d8" },
+                    10: { color: "#8eff37" },
+                    11: { color: "#37ffa7" },
+                    12: { color: "#af38ff" },
+                    13: { color: "#3788ff" },
+                    14: { color: "#6d9be4" },
+                    15: { color: "#ede268" },
+                    16: { color: "#e87171" },
+                    17: { color: "#3787ff" },
+                    18: { color: "#6d757d" }
+                  },
+                  chartArea: { width: "90%", height: "100%" },
+                  legend: { position: "left", alignment: 'center' },
+                  sliceVisibilityThreshold: 0
+
+                };
+
+                var chart = new google.visualization.PieChart(
+                  document.getElementById("pieChart")
+                );
+
+                chart.draw(data, options);
+
+                //================================================================================/
+                var barData3 = new google.visualization.DataTable();
+                barData3.addColumn("string", "Time of Day");
+                barData3.addColumn("number", "기기1");
+                barData3.addColumn({ type: "number", role: "annotation" })
+                barData3.addColumn("number", "기기2");
+                barData3.addColumn({ type: "number", role: "annotation" })
+                var testTemp = [];
+                for (var i = 0; i < dataArray.length; i++) {
+                  testTemp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]],
+                    response.PTH_CNT[convert[dataArray[i][0]][1]],
+                    response.PTH_CNT[convert[dataArray[i][0]][1]],
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                barData3.addRows(testTemp);
+                var barChart3 = new google.visualization.ColumnChart(
+                  document.getElementById("barChart3")
+                );
+                var barOptions = {
+                  // title: 'Motivation and Energy Level Throughout the Day',
+                  // colors: ["blue", "green"],
+                  hAxis: {
+
+                  },
+                  height: 400,
+                  width: 1080,
+                  vAxis: {
+                    textPosition: "none"
+                  },
+                  chartArea: { width: "90%", height: "70%" },
+                  legend: { position: "bottom" }
+                };
+                barChart3.draw(barData3, barOptions);
+
+
+              });
+
+              $.ajax({
+                url: "http://165.246.196.154:3002/app/statis/potholeAllByMonth",
+                method: "get"
+              }).done((response) => {
+                alert("월별정보 조회완료")
+                var temp = [
+                  ["1월", 0, 0],
+                  ["2월", 0, 0],
+                  ["3월", 0, 0],
+                  ["4월", 0, 0],
+                  ["5월", 0, 0],
+                  ["6월", 0, 0],
+                  ["7월", 0, 0],
+                  ["8월", 0, 0],
+                  ["9월", 0, 0],
+                  ["10월", 0, 0],
+                  ["11월", 0, 0],
+                  ["12월", 0, 0]
+                ];
+                for (var elem of response.inspectAllByMonth) {
+                  temp[elem.MONTH - 1] = [
+                    temp[elem.MONTH - 1][0],
+                    elem.COUNT,
+                    elem.COUNT
+                  ];
+                }
+                var data = new google.visualization.DataTable();
+                data.addColumn("string", "달");
+                data.addColumn("number", "사용현황");
+                data.addColumn({ type: "number", role: "annotation" });
+                console.log("____")
+                console.log(temp);
+                console.log("____")
+                data.addRows(temp);
+                var chart = new google.visualization.ColumnChart(
+                  document.getElementById("monthRegionGraph")
+                );
+                var barOptions = {
+                  //   title: "Population of Largest U.S. Cities",
+                  hAxis: {
+                    minValue: 0
+                  },
+                  vAxis: {
+                    textPosition: "none"
+                  },
+                  width: 750,
+                  height: 400,
+                  title: { position: "none" },
+                  chartArea: { width: "95%", top: 40, height: "80%" },
+                  bar: { groupWidth: "30%" }
+                };
+                chart.draw(data, barOptions);
+                const sortedTemp = temp.sort((a, b) => {
+                  return b[1] - a[1]
+                });
+                for (var i = 0; i < 12; i++) {
+                  document.getElementById("cellName" + (i + 1)).innerText = sortedTemp[i][0]
+                  document.getElementById("cellValue" + (i + 1)).innerText = sortedTemp[i][1]
+                }
+              });
+              alert("조회가 완료되었습니다.")
+
+            }
+
+
+
+
+            searchHandler_Test = (date_from, date_to) => {
+              document.getElementsByClassName("dateBtn")[0].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[1].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[2].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[3].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[4].style.backgroundColor = "#FFFFFF"
+
+
+
+
+              alert("조회가 요청되었습니다.")
+
+              document.getElementById("frommonth").value = date_from
+              document.getElementById("tomonth").value = date_to
+
+
+              const fromDate = document.getElementById("frommonth").value
+              const toDate = document.getElementById("tomonth").value
+              var stackApi = {
+                url:
+                  "http://165.246.196.154:3002/app/statis/deviceCompare?date_from=" + fromDate + "&date_to=" + toDate,
+                method: "GET",
+                async: false
+              };
+              $.ajax(stackApi).done((response) => {
+                const dataArray = [
+                  ["수원", 1000],
+                  ["의정부", 1000],
+                  ["홍천", 1000],
+                  ["강릉", 1000],
+                  ["정선", 1000],
+                  ["충주", 1000],
+                  ["보은", 1000],
+                  ["논산", 1000],
+                  ["예산", 1000],
+                  ["전주", 1000],
+                  ["남원", 1000],
+                  ["광주", 1000],
+                  ["순천", 1000],
+                  ["대구", 1000],
+                  ["포항", 1000],
+                  ["영주", 1000],
+                  ["진주", 1000],
+                  ["진영", 1000]
+                ];
+                var temp = [["지역", "건수"]];
+
+                for (var i = 0; i < dataArray.length; i++) {
+                  temp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]] +
+                    response.PTH_CNT[convert[dataArray[i][0]][1]]
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                const sorted = temp.slice(1).sort((a, b) => {
+                  return b[1] - a[1];
+                });
+
+                var sum = 0.1;
+                var data = google.visualization.arrayToDataTable(temp);
+                for (var i = 1; i < temp.length; i++) {
+                  sum = sum + temp[i][1];
+                }
+                for (var i = 0; i < 7; i++) {
+                  document.getElementById("chart1Value-" + (i + 1)).innerText =
+                    Math.round((sorted[i][1] / sum) * 100) + "%";
+                  document.getElementById("chart1Name-" + (i + 1)).innerText =
+                    sorted[i][0];
+                }
+                // for (var i = 1; i < temp.length; i++) {
+                // data.setFormattedValue(
+                //     i - 1,
+                //     0,
+                //     data.getValue(i - 1, 0) +
+                //     " (" +
+                //     ((temp[i][1] / sum) * 100).toFixed(1) +
+                //     "%)"
+                // );
+                // }
+                var options = {
+                  pieHole: 0.4,
+                  width: 1000 * 0.6,
+                  height: 400,
+                  slices: {
+                    0: { color: "#4779cc" },
+                    1: { color: "#fec242" },
+                    2: { color: "#1bc9b7" },
+                    3: { color: "#2596f3" },
+                    4: { color: "#fe3996" },
+                    5: { color: "#a2b077" },
+                    6: { color: "#dab5a4" },
+                    7: { color: "#f88c72" },
+                    8: { color: "#b67d6b" },
+                    9: { color: "#e892d8" },
+                    10: { color: "#8eff37" },
+                    11: { color: "#37ffa7" },
+                    12: { color: "#af38ff" },
+                    13: { color: "#3788ff" },
+                    14: { color: "#6d9be4" },
+                    15: { color: "#ede268" },
+                    16: { color: "#e87171" },
+                    17: { color: "#3787ff" },
+                    18: { color: "#6d757d" }
+                  },
+                  chartArea: { width: "90%", height: "100%" },
+                  legend: { position: "left", alignment: 'center' },
+                  sliceVisibilityThreshold: 0
+
+                };
+
+                var chart = new google.visualization.PieChart(
+                  document.getElementById("pieChart")
+                );
+
+                chart.draw(data, options);
+
+                //================================================================================/
+                var barData3 = new google.visualization.DataTable();
+                barData3.addColumn("string", "Time of Day");
+                barData3.addColumn("number", "기기1");
+                barData3.addColumn({ type: "number", role: "annotation" })
+                barData3.addColumn("number", "기기2");
+                barData3.addColumn({ type: "number", role: "annotation" })
+                var testTemp = [];
+                for (var i = 0; i < dataArray.length; i++) {
+                  testTemp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]],
+                    response.PTH_CNT[convert[dataArray[i][0]][1]],
+                    response.PTH_CNT[convert[dataArray[i][0]][1]],
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                barData3.addRows(testTemp);
+                var barChart3 = new google.visualization.ColumnChart(
+                  document.getElementById("barChart3")
+                );
+                var barOptions = {
+                  // title: 'Motivation and Energy Level Throughout the Day',
+                  // colors: ["blue", "green"],
+                  hAxis: {
+                  },
+                  height: 400,
+                  width: 1080,
+                  vAxis: {
+                    textPosition: "none"
+                  },
+                  chartArea: { width: "90%", height: "70%", top: 20 },
+                  legend: { position: "bottom" }
+                };
+                barChart3.draw(barData3, barOptions);
+
+
+              });
+              alert("조회가 완료되었습니다.")
+            }
+
+
+            searchHandler = () => {
+              document.getElementsByClassName("dateBtn")[0].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[1].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[2].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[3].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[4].style.backgroundColor = "#FFFFFF"
+              alert("조회가 요청되었습니다.")
+              const fromDate = document.getElementById("frommonth").value
+              const toDate = document.getElementById("tomonth").value
+              var stackApi = {
+                url:
+                  "http://165.246.196.154:3002/app/statis/deviceCompare?date_from=" + fromDate + "&date_to=" + toDate,
+                method: "GET",
+                async: false
+              };
+              $.ajax(stackApi).done((response) => {
+                const dataArray = [
+                  ["수원", 1000],
+                  ["의정부", 1000],
+                  ["홍천", 1000],
+                  ["강릉", 1000],
+                  ["정선", 1000],
+                  ["충주", 1000],
+                  ["보은", 1000],
+                  ["논산", 1000],
+                  ["예산", 1000],
+                  ["전주", 1000],
+                  ["남원", 1000],
+                  ["광주", 1000],
+                  ["순천", 1000],
+                  ["대구", 1000],
+                  ["포항", 1000],
+                  ["영주", 1000],
+                  ["진주", 1000],
+                  ["진영", 1000]
+                ];
+                var temp = [["지역", "건수"]];
+
+                for (var i = 0; i < dataArray.length; i++) {
+                  temp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]] +
+                    response.PTH_CNT[convert[dataArray[i][0]][1]]
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                const sorted = temp.slice(1).sort((a, b) => {
+                  return b[1] - a[1];
+                });
+
+                var sum = 0.1;
+                var data = google.visualization.arrayToDataTable(temp);
+                for (var i = 1; i < temp.length; i++) {
+                  sum = sum + temp[i][1];
+                }
+                for (var i = 0; i < 12; i++) {
+                  document.getElementById("chart1Value-" + (i + 1)).innerText =
+                    Math.round((sorted[i][1] / sum) * 100) + "%";
+                  document.getElementById("chart1Name-" + (i + 1)).innerText =
+                    sorted[i][0];
+                }
+                // for (var i = 1; i < temp.length; i++) {
+                // data.setFormattedValue(
+                //     i - 1,
+                //     0,
+                //     data.getValue(i - 1, 0) +
+                //     " (" +
+                //     ((temp[i][1] / sum) * 100).toFixed(1) +
+                //     "%)"
+                // );
+                // }
+                var options = {
+                  pieHole: 0.4,
+                  width: 1000 * 0.6,
+                  height: 400,
+                  slices: {
+                    0: { color: "#4779cc" },
+                    1: { color: "#fec242" },
+                    2: { color: "#1bc9b7" },
+                    3: { color: "#2596f3" },
+                    4: { color: "#fe3996" },
+                    5: { color: "#a2b077" },
+                    6: { color: "#dab5a4" },
+                    7: { color: "#f88c72" },
+                    8: { color: "#b67d6b" },
+                    9: { color: "#e892d8" },
+                    10: { color: "#8eff37" },
+                    11: { color: "#37ffa7" },
+                    12: { color: "#af38ff" },
+                    13: { color: "#3788ff" },
+                    14: { color: "#6d9be4" },
+                    15: { color: "#ede268" },
+                    16: { color: "#e87171" },
+                    17: { color: "#3787ff" },
+                    18: { color: "#6d757d" }
+                  },
+                  chartArea: { width: "90%", height: "100%" },
+                  legend: { position: "left", alignment: 'center' },
+                  sliceVisibilityThreshold: 0
+
+                };
+
+                var chart = new google.visualization.PieChart(
+                  document.getElementById("pieChart")
+                );
+
+                chart.draw(data, options);
+
+                //================================================================================/
+                var barData3 = new google.visualization.DataTable();
+                barData3.addColumn("string", "Time of Day");
+                barData3.addColumn("number", "기기1");
+                barData3.addColumn({ type: "number", role: "annotation" })
+                barData3.addColumn("number", "기기2");
+                barData3.addColumn({ type: "number", role: "annotation" })
+                var testTemp = [];
+                for (var i = 0; i < dataArray.length; i++) {
+                  testTemp.push([
+                    dataArray[i][0],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]],
+                    response.PTH_CNT[convert[dataArray[i][0]][0]],
+                    response.PTH_CNT[convert[dataArray[i][0]][1]],
+                    response.PTH_CNT[convert[dataArray[i][0]][1]],
+                  ]);
+                  // temp.push([dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0]+Object.values(response.HUMAN_CNT[i*2+1][0])[0]])
+                  //    dataArray[i]=[dataArray[i][0],Object.values(response.HUMAN_CNT[i*2][0])[0],Object.values(response.HUMAN_CNT[i*2+1][0])[0]]
+                  // dataArray[i] = [dataArray[i][0],Object.values(response.PTH_CNT[i*2][0])[0],Object.values(response.PTH_CNT[i*2+1][0])[0]]
+                }
+                barData3.addRows(testTemp);
+                var barChart3 = new google.visualization.ColumnChart(
+                  document.getElementById("barChart3")
+                );
+                var barOptions = {
+                  // title: 'Motivation and Energy Level Throughout the Day',
+                  // colors: ["blue", "green"],
+                  hAxis: {
+                  },
+                  height: 400,
+                  width: 1080,
+                  vAxis: {
+                    textPosition: "none"
+                  },
+                  chartArea: { width: "90%", height: "70%", top: 20 },
+                  legend: { position: "bottom" }
+                };
+                barChart3.draw(barData3, barOptions);
+
+
+              });
+              alert("조회가 완료되었습니다.")
+            }
+
+
+
+            function formatDate(date) {
+              var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2)
+                month = '0' + month;
+              if (day.length < 2)
+                day = '0' + day;
+
+              return [year, month, day].join('-');
+            }
+
+
+
+
+            clickHanlder = (dom) => {
+              document.getElementsByClassName("dateBtn")[0].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[1].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[2].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[3].style.backgroundColor = "#FFFFFF"
+              document.getElementsByClassName("dateBtn")[4].style.backgroundColor = "#FFFFFF"
+              console.log(dom)
+
+
+
+
+              if (dom.innerText == "전체") {
+
+                const today = new Date()
+                const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+
+
+                var date_from = "2021-03-25"
+                var date_to = formatDate(tomorrow)
+
+                searchHandler_Test(date_from, date_to)
+
+
+              }
+
+              else if (dom.innerText == "오늘") {
+
+
+                const today = new Date()
+                const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+
+
+                var date_from = formatDate(today)
+                var date_to = formatDate(tomorrow)
+
+                searchHandler_Test(date_from, date_to)
+
+
+
+
+              }
+
+              else if (dom.innerText == "어제") {
+
+                const today = new Date()
+                const yesterday = new Date(today.getTime() - 1 * 24 * 60 * 60 * 1000)
+
+
+                var date_from = formatDate(yesterday)
+                var date_to = formatDate(today)
+
+
+                searchHandler_Test(date_from, date_to)
+
+
+              }
+
+              else if (dom.innerText == "월") {
+
+
+                const thisMonth = new Date()
+                thisMonth.setDate(1)
+
+                var nextMonth = new Date(thisMonth)
+
+                if (thisMonth.getMonth() == 11) {
+                  nextMonth = new Date(thisMonth.getFullYear() + 1, 0, 1);
+                }
+
+                else {
+                  nextMonth = new Date(thisMonth.getFullYear(), thisMonth.getMonth() + 1, 1);
+                }
+
+
+                var date_from = formatDate(thisMonth)
+                var date_to = formatDate(nextMonth)
+
+                searchHandler_Test(date_from, date_to)
+
+
+              }
+
+
+              else if (dom.innerText == "주") {
+
+                let today = new Date()
+                today = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+                const beforeWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000)
+
+
+                var date_from = formatDate(beforeWeek)
+                var date_to = formatDate(today)
+
+                searchHandler_Test(date_from, date_to)
+
+
+              }
+              dom.style.backgroundColor = "rgb(218, 218, 218)" // 이 부분 조절
+            }
+          </script>
+        </head>
+        <style>
+          #wrapper {
+            width: 100vw;
+            min-width: 1080px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            height: auto;
+          }
+
+          .contentBox {
+            width: 1080px;
+            height: 400px;
+            /* background-color:red; */
+            display: flex;
+            flex-direction: row;
+          }
+
+          .pieChartBox {
+            width: 60%;
+            height: 100%;
+          }
+
+          .tableBox {
+            width: 40%;
+            height: 100%;
+            /* background-color:yellow; */
+            display: flex;
+            flex-direction: column;
+            /* background:red */
+          }
+
+          .tableWrap {
+            height: 50%;
+            width: 100%;
+            /* background-color:brown; */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+          }
+
+          .contentHead {
+            width: 1080px;
+            height: 40px;
+            background-color: #f7f8f7;
+            line-height: 40px;
+          }
+
+          .contentWrap {
+            border: 1px solid #eaebea;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+          }
+
+          .table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            max-height: 100%;
+            overflow: scroll;
+            /* height: 100%; */
+          }
+
+          .tableHead {
+            background-color: #eaebea;
+            width: 33.33%;
+            height: 30px;
+          }
+
+          .cell {
+            height: 25px;
+            text-align: center;
+          }
+
+          .cellRow {
+            border-bottom: 1px solid #eaebea;
+          }
+        </style>
+        <div id="wrapper">
+          <div id="Start_date"
+            style="background-color: #FAFAFB; border-radius:5px; padding:10px; width:1080px; margin-top: 20px;">
+            <button class="dateBtn" onclick="clickHanlder(this)">전체</button>
+            <button class="dateBtn" onclick="clickHanlder(this)">어제</button>
+            <button class="dateBtn" onclick="clickHanlder(this)">오늘</button>
+            <button class="dateBtn" onclick="clickHanlder(this)">주</button>
+            <button class="dateBtn" onclick="clickHanlder(this)">월</button>
+            <div>기간</div>
+            <input name="month" id="frommonth" style="margin-left:10px; margin-right:10px" type="date"></input>
+            ~
+            <input name="month" id="tomonth" style="margin-left:10px; margin-right:10px" type="date"></input>
+            <button onclick="searchHandler()">
+              조회
+            </button>
+          </div>
+          <div class="contentWrap">
+            <div class="contentHead" style="text-indent:10px; font-weight:bold">국토관리사무소별 포트홀 검출 분포</div>
+            <div class="contentBox">
+              <div class="pieChartBox">
+                <div id="pieChart"></div>
+              </div>
+              <div class="tableBox" style="height: 100%">
+                <div class="tableWrap" style="height: 100%">
+                  <table class="table">
+                    <th class="tableHead">순위</th>
+                    <th class="tableHead">지역</th>
+                    <th class="tableHead">비율</th>
+                    <tr class="cellRow">
+                      <!-- 첫번째 줄 시작 -->
+                      <td class="cell">1</td>
+                      <td class="cell" id="chart1Name-1"></td>
+                      <td class="cell" id="chart1Value-1"></td>
+                    </tr>
+                    <!-- 첫번째 줄 끝 -->
+                    <tr class="cellRow">
+                      <td class="cell">2</td>
+                      <td class="cell" id="chart1Name-2"></td>
+                      <td class="cell" id="chart1Value-2"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">3</td>
+                      <td class="cell" id="chart1Name-3"></td>
+                      <td class="cell" id="chart1Value-3"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">4</td>
+                      <td class="cell" id="chart1Name-4"></td>
+                      <td class="cell" id="chart1Value-4"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">5</td>
+                      <td class="cell" id="chart1Name-5"></td>
+                      <td class="cell" id="chart1Value-5"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">6</td>
+                      <td class="cell" id="chart1Name-6"></td>
+                      <td class="cell" id="chart1Value-6"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">7</td>
+                      <td class="cell" id="chart1Name-7"></td>
+                      <td class="cell" id="chart1Value-7"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">8</td>
+                      <td class="cell" id="chart1Name-8"></td>
+                      <td class="cell" id="chart1Value-8"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">9</td>
+                      <td class="cell" id="chart1Name-9"></td>
+                      <td class="cell" id="chart1Value-9"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">10</td>
+                      <td class="cell" id="chart1Name-10"></td>
+                      <td class="cell" id="chart1Value-10"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">11</td>
+                      <td class="cell" id="chart1Name-11"></td>
+                      <td class="cell" id="chart1Value-11"></td>
+                    </tr>
+                    <tr class="cellRow">
+                      <td class="cell">12</td>
+                      <td class="cell" id="chart1Name-12"></td>
+                      <td class="cell" id="chart1Value-12"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contentWrap">
+            <div class="contentHead" style="text-indent:10px;font-weight: bold">기기별 포트홀 검출 현황</div>
+            <div class="contentBox">
+              <div class="pieChartBox" style="width: 100%">
+                <div id="barChart3"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="
+              display: flex;
+              flex-direction: row;
+              height: 480px;
+              width: 1080px;
+              justify-content: space-between;
+            ">
+            <div class="contentWrap" style="width: 69%">
+              <div class="contentHead" style="width: 100%; text-indent:10px; font-weight: bold">
+                월별 포트홀 검출 분포
+              </div>
+              <div class="contentBox" style="width: 100%">
+                <div class="pieChartBox" style="width: 100%">
+                  <div id="monthRegionGraph"></div>
+                </div>
+              </div>
+            </div>
+            <div class="contentWrap" style="width: 29%">
+              <div class="contentHead" style="width: 100%; text-indent:10px; font-weight: bold">
+                월별 포트홀 검출 순위
+              </div>
+              <div class="contentBox" style="width: 100%">
+                <div class="pieChartBox" style="width: 100%">
+                  <div class="tableWrap" style="height: 100%">
+                    <table class="table" style="max-height: 100%">
+                      <th class="tableHead">순위</th>
+                      <th class="tableHead">월</th>
+                      <th class="tableHead">검수</th>
+                      <tr class="cellRow">
+                        <!-- 첫번째 줄 시작 -->
+                        <td class="cell">1</td>
+                        <td class="cell" id="cellName1"></td>
+                        <td class="cell" id="cellValue1"></td>
+                      </tr>
+                      <!-- 첫번째 줄 끝 -->
+                      <tr class="cellRow">
+                        <td class="cell">2</td>
+                        <td class="cell" id="cellName2"></td>
+                        <td class="cell" id="cellValue2"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">3</td>
+                        <td class="cell" id="cellName3"></td>
+                        <td class="cell" id="cellValue3"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">4</td>
+                        <td class="cell" id="cellName4"></td>
+                        <td class="cell" id="cellValue4"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">5</td>
+                        <td class="cell" id="cellName5"></td>
+                        <td class="cell" id="cellValue5"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">6</td>
+                        <td class="cell" id="cellName6"></td>
+                        <td class="cell" id="cellValue6"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">7</td>
+                        <td class="cell" id="cellName7"></td>
+                        <td class="cell" id="cellValue7"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">8</td>
+                        <td class="cell" id="cellName8"></td>
+                        <td class="cell" id="cellValue8"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">9</td>
+                        <td class="cell" id="cellName9"></td>
+                        <td class="cell" id="cellValue9"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">10</td>
+                        <td class="cell" id="cellName10"></td>
+                        <td class="cell" id="cellValue10"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">11</td>
+                        <td class="cell" id="cellName11"></td>
+                        <td class="cell" id="cellValue11"></td>
+                      </tr>
+                      <tr class="cellRow">
+                        <td class="cell">12</td>
+                        <td class="cell" id="cellName12"></td>
+                        <td class="cell" id="cellValue12"></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- JS -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmRK3A43IwUn24tpYLnNLk4Q4yDaYewSk&callback=initMap&libraries=&v=weekly"
+  defer></script>
+<script src="../js/testInfo/testInfo.js"></script>

@@ -1,0 +1,61 @@
+<header>
+    <img onclick="Refresh()" src="../img/logo_txt.png"/>
+    <div></div>
+</header>
+<div id="Body">
+    <div id="Sidebar">
+    </div>
+    <div class="Box flex_row">
+        <div id="PageName">
+            <li>당일 통계</li>
+            <div class="flex_mid">
+                <div class="btn_Save" onclick="exportCSV()">저장하기</div>
+            </div>
+        </div>
+        <div id="ContentsWrapper">
+            <div id="Contents">
+                <div>
+                    <!-- <div id="T_DateBtns">
+                        <button id="btn_All" onclick="AllData(this)">전체</button>
+                        <button onclick="YesterdayData(this)">어제</button>
+                        <button id="btn_Today" onclick="TodayData(this)">오늘</button>
+                        <button onclick="ThisWeekData(this)">주</button>
+                        <button onclick="ThisMonthData(this)">월</button>
+                        <div id="btn_Period" class="flex_mid V_Period">기간</div>
+                        <input type="date" id="PeriodStart"/>
+                        <p>~</p>
+                        <input type="date" id="PeriodEnd"/>
+                        <button onclick="ThisPeriod()">확인</button>
+                    </div> -->
+                    <div id="T_Table">
+                        <div id="TableTitle" class="T_title boxes flex_mid" style="width: 100%;"></div>
+                        <div class="flex_mid">
+                            <div class="T_title boxes flex_mid" style="width: 50%; border: 1px solid #bbbbbb">전체 수신된 데이터 개수</div>
+                            <div id="detected_ALL" class="T_text boxes flex_mid" style="width: 50%;border: 1px solid #bbbbbb">&nbsp;</div>
+                        </div>
+                        <div class="flex_mid">
+                            <div class="T_title boxes flex_mid" style="width: 50%;border: 1px solid #bbbbbb">전체 검수된 데이터 개수</div>
+                            <div id="checked_ALL" class="T_text boxes flex_mid" style="width: 50%;border: 1px solid #bbbbbb">&nbsp;</div>
+                        </div>
+                        <div class="flex_mid">
+                            <div class="T_title boxes flex_mid" style="width: 50%;border: 1px solid #bbbbbb">전체 검출된 포트홀 개수</div>
+                            <div id="pothole_ALL" class="T_text boxes flex_mid" style="width: 50%;border: 1px solid #bbbbbb">&nbsp;</div>
+                        </div>
+                        <div class="flex_mid">
+                            <div class="T_title boxes flex_mid" style="width: 25%;">디바이스</div>
+                            <div class="T_title boxes flex_mid" style="width: 25%;">수신된 데이터 개수</div>
+                            <div class="T_title boxes flex_mid" style="width: 25%;">검수된 데이터 개수</div>
+                            <div class="T_title boxes flex_mid" style="width: 25%;">검출된 포트홀 개수</div>
+                        </div>
+                    </div>
+                    <div id="T_ScrollBox">
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<!-- JS -->
+<script src="../js/Chart/C_TableChart.js"></script>

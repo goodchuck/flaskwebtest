@@ -1,0 +1,238 @@
+<header>
+  <img onclick="Refresh()" src="../img/logo_txt.png" />
+  <div></div>
+  <style>
+    .btn {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+    .btn:hover {
+      background-color: black;
+      color: white;
+    }
+    .btn #front {
+      border-right: 20px solid black;
+    }
+    .btn:hover #front {
+      border-right: 20px solid white;
+    }
+    .btn #back {
+      border-left: 20px solid black;
+    }
+    .btn:hover #back {
+      border-left: 20px solid white;
+    }
+    .btnClose{
+      background-color: black;
+      color: white;
+    }
+    .btnClose:hover{
+      background-color: rgba(255, 255, 255, 0.6);
+      color: black
+    }
+  </style>
+  <script>
+    document.addEventListener("keydown", event => {
+      if (event.keyCode === 27) {
+        CloseModal()
+      }}
+    )
+  </script>
+</header>
+<div id="Body">
+  <div id="Sidebar"></div>
+  <div class="Box flex_row">
+    <div id="PageName">
+      <li>포트홀 현황</li>
+    </div>
+    <div id="ContentsWrapper">
+      <div id="Contents">
+        <div>
+          <div id="map" style="display: none"></div>
+          <!-- 언제 다시 사용할지 몰라 일단 보이지 않게만 처리했습니다. -->
+          <div id="FnBox">
+            <div id="ListBox">
+              <div id="Mini_DateBtns">
+                <button id="btn_All" onclick="AllData(this)">전체</button>
+                <button onclick="YesterdayData(this)">어제</button>
+                <button onclick="TodayData(this)">오늘</button>
+                <button onclick="ThisWeekData(this)">주</button>
+                <button onclick="ThisMonthData(this)">월</button>
+
+                <div id="btn_Period" class="flex_mid Period">기간</div>
+                <input type="date" id="PeriodStart" />
+                <p>~</p>
+                <input type="date" id="PeriodEnd" />
+
+                <button onclick="ThisPeriod()">확인</button>
+              </div>
+              <div id="ListController">
+                <span id="BtnLeft" onclick="ListPagingLeft()"
+                  ><img
+                    name="angle_left"
+                    src="../img/icon/angle_left.png"
+                    onmouseover="iconhover(this)"
+                    onmouseout="iconout(this)"
+                /></span>
+                <span class="Blank" id="TxtCurrentListPage"></span>
+                <span>/</span>
+                <span id="TxtTotalListPage"></span>
+                <span id="BtnRight" class="Blank" onclick="ListPagingRight()"
+                  ><img
+                    name="angle_right"
+                    src="../img/icon/angle_right.png"
+                    onmouseover="iconhover(this)"
+                    onmouseout="iconout(this)"
+                /></span>
+              </div>
+              <table id="ListHead">
+                <tr>
+                  <th style="width: 5%">
+                    <p>번호</p>
+                  </th>
+                  <th style="width: 25%">
+                    <p>주소</p>
+                  </th>
+                  <th style="width: 16%">
+                    <p>시간</p>
+                  </th>
+                  <th style="width: 22%">
+                    <p>기기 정보</p>
+                  </th>
+                  <th style="width: 17%">
+                    <p>사진</p>
+                  </th>
+                  <th style="width: 30%">
+                    <p>삭제</p>
+                  </th>
+                </tr>
+              </table>
+              <div id="ListBodyWrapper">
+                <table id="ListBody"></table>
+              </div>
+            </div>
+            <div id="ChartBox" style="display: none">
+              <div id="MiniChart_title" style="margin-top: 20vh">
+                기간별 검출 현황
+              </div>
+              <div id="ChartWrapper">
+                <canvas id="Chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal" class="flex_mid" style="display: none">
+      <div
+        style="
+          width: 10vh;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div
+          class="btn"
+          id="backBtn"
+          style="
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            line-height: 9vh;
+          "
+        >
+          <div
+            id="front"
+            style="
+              width: 0px;
+              height: 0px;
+              margin-top: 10px;
+              margin-right: 10px;
+              border-left: 20px solid none;
+              border-top: 20px solid transparent;
+              border-bottom: 20px solid transparent;
+            "
+          ></div>
+        </div>
+      </div>
+      <div id="modalInside" style="width: 148.1481vh">
+        <div style="position: absolute; width: 148.1481vh; height: 60px; display:flex; justify-content: center;align-items: center;">
+          <div
+            style="
+              width: 60px;
+              height: 60px;
+              border-radius: 30px;
+              line-height: 60px;
+              text-align: center;
+              font-weight: bold;
+              z-index: 10;
+              margin-top: -150px;
+            "
+            onclick="CloseModal()"
+            class="btnClose"
+          >
+            X
+          </div>
+        </div>
+        <div
+          class="flex_mid"
+          style="width: 148.1481vh; background-color: white"
+        >
+          <img id="modalimg" src="" />
+          <canvas
+            id="modalcanvas"
+            width="1920px"
+            height="1080px"
+            style="position: absolute"
+          ></canvas>
+        </div>
+      </div>
+      <div
+        style="
+          width: 10vh;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div
+          class="btn"
+          id="nextBtn"
+          style="
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            line-height: 9vh;
+          "
+        >
+          <div
+            id="back"
+            style="
+              width: 0px;
+              height: 0px;
+              margin-top: 10px;
+              margin-left: 10px;
+              border-right: 20px solid none;
+              border-top: 20px solid transparent;
+              border-bottom: 20px solid transparent;
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- JS -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmRK3A43IwUn24tpYLnNLk4Q4yDaYewSk&callback=initMap&libraries=&v=weekly"
+  defer
+></script>
+<script src="../js/PotholeState/S_PotholeState.js"></script>

@@ -1,0 +1,132 @@
+/* 날짜 */
+#T_DateBtns {
+    width: 84.3750vw;
+    max-width: 1610px;
+    height: 6.4815vh;
+    max-height: 70px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 1.3889vh;
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#T_DateBtns button {
+    width: 8.3333vw;
+    max-width: 160px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    /* font-weight: bold; */
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#T_DateBtns button:hover {
+    background-color: #DADADA;
+    border: 1px solid #FAFAFA;
+}
+
+#T_DateBtns button:focus {
+    outline: none;
+}
+
+#T_DateBtns input {
+    width: 7.8125vw;
+    max-width: 150px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    /* font-weight: bold; */
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+
+    padding-left: 5px;
+}
+
+#T_DateBtns input:focus {
+    outline: none;
+}
+
+#T_DateBtns p {
+    /* font-weight: bold; */
+}
+
+.V_Period {
+    width: 8.3333vw;
+    max-width: 160px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    /* font-weight: bold; */
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* 본문 */
+#T_Table {
+    width: 84.3750vw;
+    max-width: 1610px;
+}
+
+.T_title {
+    border: 1px solid #dfdfdf;
+    background-color: #DADADA;
+}
+
+.T_text {
+    border-bottom: 1px solid #bbbbbb;
+    padding-left: 0.7813vw;
+}
+
+.boxes {
+    height: 3.7037vh;
+    max-height: 40px;
+    
+    font-size: 1.6667vh;
+    /* font-weight: bold; */
+
+    margin-bottom: 0.4630vh;
+}
+
+#T_ScrollBox {
+    width: 84.3750vw;
+    max-width: 1620px;
+    /* height: 62.5000vh;
+    max-height: 675px; */
+    height: 66.2037vh;
+    max-height: 715px;
+
+    overflow-y: auto;
+}
+
+#T_ScrollBox::-webkit-scrollbar {
+    width: 0.5208vw;
+
+    background-color: #FFFFFF;
+}
+
+#T_ScrollBox::-webkit-scrollbar-thumb {
+    background-color: #353540;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}

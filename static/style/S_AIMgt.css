@@ -1,0 +1,272 @@
+#Section1 {
+    width: 31.7708vw;
+    max-width: 610px;
+
+    margin-right: 1.0417vw;
+}
+
+.ToolBtn {
+    height: 3.2407vh;
+    max-height: 35px; 
+
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-radius: 0.1563vw;
+    box-shadow:  2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    text-align: center; 
+}
+
+.ToolBtn:hover {
+    background: #DADADA;
+    border: 1px solid #FFFFFF;
+}
+
+#Section2 {
+    width: 51.0417vw;
+    max-width: 980px;
+}
+
+.DC_title {
+    height: 4.6296vh;
+    max-height: 50px;
+
+    font-size: 1.8519vh;
+    font-weight: bold;
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 0.9259vh;
+    padding: 0 1.3021vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    height: 4.6296vh;
+    max-height: 50px;
+
+    font-size: 1.8519vh;
+    font-weight: bold;
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 0.9259vh;
+    padding: 0 1.3021vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.title div {
+    width: 24.4792vw;
+    max-width: 470px;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.title p {
+    padding-right: 1.0417vw;
+}
+
+.table_title {
+    width: 51.0417vw;
+    max-width: 980px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    background-color: #ffffff;
+    border: 1px solid #DADADA;
+
+    /* margin-bottom: 0.9259vh; */
+
+    display: flex;
+}
+.table_title div {
+    font-size: 1.8519vh;
+    font-weight: bold;
+}
+
+.table_main {
+    width: 51.0417vw;
+    max-width: 980px;
+    height: 18.6111vh; 
+    max-height: 201px; 
+
+    background: #ffffff;
+    border: 1px solid #E0E0E0;
+
+    margin-bottom: 1.8519vh;
+    display: flex;
+}
+
+.main {
+    background-color: #ffffff;
+    border: 1px solid #DADADA;
+
+    padding: 1.8519vh 1.8229vw;
+}
+
+#CurrentModelTable th {
+    height: 3.0556vh;
+    max-height: 33px;
+
+    font-size: 1.6667vh;
+    text-align: left;
+    background-color: #DEDFDF;
+    
+    padding-left: 0.5208vw;
+}
+
+#CurrentModelTable td {
+    height: 2.5926vh;
+    max-height: 28px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+    background-color: #E9EAEA;
+
+    padding-left: 0.5208vw;
+}
+
+#LineChartWrapper {
+    width: 28.1250vw;
+    max-width: 540px;
+    height: 33.6111vh;
+    max-height: 363px;
+}
+
+.DoughnutChart1 {
+    width: 13.8889vh;
+    max-width: 150px;
+    height: 13.8889vh;
+    max-height: 150px;
+
+    text-align: center;
+    line-height: 0;
+    font-weight: bold;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.DoughnutChart1 canvas {
+    width: 13.8889vh;
+    max-width: 150px;
+    height: 13.8889vh;
+    max-height: 150px;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.DoughnutChart2 {
+    width: 13.8889vh;
+    max-width: 150px;
+    height: 13.8889vh;
+    max-height: 150px;
+
+    text-align: center;
+    line-height: 0;
+    font-weight: bold;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.DoughnutChart2 canvas {
+    width: 13.8889vh;
+    max-width: 150px;
+    height: 13.8889vh;
+    max-height: 150px;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tilte_defalut {
+    height: 3.3333vh;
+    max-height: 36px;
+    
+    background-color: #eeeeee;
+    border: 1px solid #DADADA;
+
+    font-size: 1.6667vh;
+    font-weight: bold;
+}
+
+.textbox_defalut {
+    height: 3.3333vh;
+    max-height: 36px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #DADADA;
+
+    padding: 0 1.3889vh;
+}
+
+.title_l {
+    width: 8.5938vw;
+    max-width: 165px;
+}
+
+#datetimeBox input {
+    width: 13.0208vw;
+    max-width: 250px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #cccccc;
+    font-size: 1.4815vh;
+    font-weight: bold;
+}
+
+#datetimeBox input:focus {
+    outline: none;
+}
+
+/* #datetimeBox button {
+    width: 60px;
+    
+    background-color: #cccccc;
+    border: 1px solid #f0f0f0;
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-left: 10px;
+}
+
+#datetimeBox button:hover {
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+} */
+
+.title_s {
+    padding: 0 1.3889vh;
+}
+
+.btn_start {
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.6667vh;
+    font-weight: bold;
+
+    background-color: #FFFFFF;
+    border: 1px solid #b4b4b4;
+    border-radius: 0.2778vh;
+    box-shadow:  2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.btn_start:hover {
+    background: #DADADA;
+    border: 1px solid #FFFFFF;
+}

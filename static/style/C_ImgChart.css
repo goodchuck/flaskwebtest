@@ -1,0 +1,190 @@
+#C_DateBtns {
+    width: 84.3750vw;
+    max-width: 1610px;
+    height: 6.4815vh;
+    max-height: 70px;
+
+    background-color: #ECECEC;
+    border: 1px solid #DADADA;
+
+    margin-bottom: 1.3889vh;
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#C_DateBtns button {
+    width: 8.3333vw;
+    max-width: 160px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#C_DateBtns button:hover {
+    background-color: #DADADA;
+    border: 1px solid #FAFAFA;
+}
+
+#C_DateBtns button:focus {
+    outline: none;
+}
+
+#C_DateBtns input {
+    width: 7.8125vw;
+    max-width: 150px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+
+    padding-left: 5px;
+}
+
+#C_DateBtns input:focus {
+    outline: none;
+}
+
+#C_DateBtns p {
+    font-weight: bold;
+}
+
+.C_Period {
+    width: 8.3333vw;
+    max-width: 160px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.C_Daily {
+
+    width: 23.8411vw;
+    max-width: 360px;
+    height: 3.7037vh;
+    max-height: 40px;
+
+    font-size: 1.4815vh;
+    font-weight: bold;
+
+    background-color: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-radius: 3px;
+    box-shadow:  2px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#C_ChartWrapper {
+    height: 27.7778vh;
+    max-height: 300px;
+    
+    margin-bottom: 1.3889vh;
+    /* border: 1px solid #8f8f8f; */
+}
+
+#C_Pictures {
+    /* border: 1px solid #8f8f8f; */
+
+    width: 84.3750vw;
+    max-width: 1610px;
+    height: 46.2963vh;
+    max-height: 500px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#C_Pictures::-webkit-scrollbar {
+    width: 0.5208vw;
+
+    background-color: #FFFFFF;
+}
+
+#C_Pictures::-webkit-scrollbar-thumb {
+    background-color: #353540;
+    border-radius: 0.4630vh;
+
+    background-clip: padding-box;
+    border: 0.0521vw solid transparent;
+}
+
+#C_Pictures .ImgWrapper {
+    width: 20.5729vw;
+    max-width: 395px;
+
+    margin-bottom: 0.5208vh;
+    position: relative;
+
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#C_Pictures .LoadImg {
+    /* 400*225(16:9) */
+    width: 20.5729vw;
+    max-width: 395px;
+    height: 11.5723vw;
+    max-height: 222.188px;
+
+    margin-bottom: 0.5208vh;
+}
+
+#C_Modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#C_Modal div {
+    width: 150.0000vh;
+    max-width: 1620px;
+    height: 85.1852vh;
+    max-height: 920px;
+
+    background-color: white;
+}
+
+#C_Modal div img {
+    width: 148.1481vh;
+    max-width: 1600px;
+    height: 83.3333vh;
+    max-height: 900px;
+}
+
+#C_Modal div canvas {
+    position: absolute;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "template2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . PMS2ndFilter"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^11.1.1",
+    "electron-aspectratio": "^1.0.1",
+    "electron-packager": "^15.2.0",
+    "jquery": "^3.5.1",
+    "socket.io": "^3.1.2",
+    "socketio-file-upload": "^0.7.3"
+  }
+}

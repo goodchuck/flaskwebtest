@@ -1,0 +1,180 @@
+<header>
+  <img onclick="Refresh()" src="../img/logo_txt.png" />
+  <div></div>
+</header>
+<div id="Body">
+  <div id="Sidebar"></div>
+  <div class="Box flex_row">
+    <div id="PageName">
+      <li>연계율 현황</li>
+    </div>
+    <div id="ContentsWrapper">
+      <div id="Contents" style="width: 83.8542vw">
+        <head>
+          <meta charset="UTF-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <title>Document</title>
+          <script type="text/javascript" src="../js/lib/googleChart.js"></script>
+          <script type="text/javascript">
+            google.charts.load("current", { packages: ["corechart"] });
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var barData = new google.visualization.DataTable();
+              barData.addColumn("string", "Time of Day");
+              barData.addColumn("number", "지킴이 연계율");
+              barData.addColumn({ role: "annotation", type: "string" });
+              // barData.addColumn("number", "디바이스 2번");
+              const month = new Date().getMonth();
+              var temp = [
+                ["1월", 0, "0%"],
+                ["2월", 0, "0%"],
+                ["3월", 0, "0%"],
+                ["4월", 0, "0%"],
+                ["5월", 0, "0%"],
+                ["6월", 0, "0%"],
+                ["7월", 0, "0%"],
+                ["8월", 0, "0%"],
+                ["9월", 0, "0%"],
+                ["10월", 0, "0%"],
+                ["11월", 0, "0%"],
+                ["12월", 0, "0%"]
+              ]
+              for(var i=0; i<month+1; i++) {
+                temp[i] = [temp[i][0], 100,"100%"]
+              }
+              barData.addRows([
+                ["1월", 100, "100%"],
+                ["2월", 100, "100%"],
+                ["3월", 100, "100%"],
+                ["4월", 100, "100%"],
+                ["5월", 0, "0%"],
+                ["6월", 0, "0%"],
+                ["7월", 0, "0%"],
+                ["8월", 0, "0%"],
+                ["9월", 0, "0%"],
+                ["10월", 0, "0%"],
+                ["11월", 0, "0%"],
+                ["12월", 0, "0%"]
+              ]);
+
+              var barOptions = {
+                // title: 'Motivation and Energy Level Throughout the Day',
+                colors: ["blue", "red"],
+                width: 1080,
+                height:350,
+                chartArea: { width: "90%", height: "80%" },
+                legend: { position: "none" },
+                hAxis: {
+                },
+                vAxis: {
+                  minValue: 0,
+                  maxValue: 100,
+                  textPosition: "none"
+                 
+                }
+              };
+
+              var barChart = new google.visualization.ColumnChart(
+                document.getElementById("barChart")
+              );
+              barChart.draw(barData, barOptions);
+              //============================================================//
+            }
+          </script>
+        </head>
+        <style>
+          #wrapper {
+            width: 100vw;
+            min-width: 1080px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            height: auto;
+          }
+          .contentBox {
+            width: 1080px;
+            height: 400px;
+            /* background-color:red; */
+            display: flex;
+            flex-direction: row;
+          }
+
+          .pieChartBox {
+            width: 60%;
+            height: 100%;
+          }
+          .tableBox {
+            width: 40%;
+            height: 100%;
+            /* background-color:yellow; */
+            display: flex;
+            flex-direction: column;
+            /* background:red */
+          }
+          .tableWrap {
+            height: 50%;
+            width: 100%;
+            /* background-color:brown; */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+          }
+          .contentHead {
+            width: 1080px;
+            height: 40px;
+            background-color: #f7f8f7;
+            line-height: 40px;
+          }
+          .contentWrap {
+            border: 1px solid #eaebea;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+          }
+          .table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            max-height: 100%;
+            overflow: scroll;
+            /* height: 100%; */
+          }
+          .tableHead {
+            background-color: #eaebea;
+            width: 33.33%;
+            height: 30px;
+          }
+          .cell {
+            height: 25px;
+            text-align: center;
+          }
+          .cellRow {
+            border-bottom: 1px solid #eaebea;
+          }
+        </style>
+
+        <div id="wrapper">
+          <div class="contentWrap">
+            <div class="contentHead" style="text-indent: 10px; font-weight: bold;">월별 지킴이 연계율</div>
+            <div class="contentBox">
+              <div class="pieChartBox" style="width: 100%">
+                <div id="barChart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- JS -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmRK3A43IwUn24tpYLnNLk4Q4yDaYewSk&callback=initMap&libraries=&v=weekly"
+  defer
+></script>
+<script src="../js/safeInfo/safeInfo.js"></script>
